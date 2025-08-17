@@ -1,7 +1,7 @@
 import React from "react";
 import { cn } from "../../lib/cn";
 
-type TextVariant = "p" | "lead" | "muted" | "caption" | "label";
+type TextVariant = "display" | "heading" | "subheading" | "body" | "caption";
 
 type TextElement = keyof React.JSX.IntrinsicElements;
 
@@ -13,15 +13,15 @@ export type TextProps<T extends TextElement = "p"> = {
 } & Omit<React.ComponentPropsWithoutRef<T>, "className">;
 
 const variantStyles: Record<TextVariant, string> = {
-  p: "text-base text-gray-800",
-  lead: "text-lg text-gray-700",
-  muted: "text-sm text-muted-foreground",
-  caption: "text-xs text-muted-foreground",
-  label: "text-sm font-medium",
+  display: "text-4xl md:text-5xl xl:text-6xl font-medium",
+  heading: "text-3xl xl:text-4xl font-medium",
+  subheading: "text-lg md:text-xl xl:text-2xl",
+  body: "text-base",
+  caption: "text-sm",
 };
 
 export function Text<T extends TextElement = "p">({
-  variant = "p",
+  variant = "body",
   as,
   className,
   children,
