@@ -1,4 +1,4 @@
-import { NAVIGATION_ITEMS } from "@/constants";
+import { MAIN_NAVIGATION_ITEMS } from "@/constants";
 import { Anchor } from "../ui";
 import { ThemeToggle } from "./ThemeToggle";
 
@@ -14,7 +14,7 @@ export default function Header() {
       </Anchor>
       <nav>
         <ul className='flex gap-1 items-center'>
-          {NAVIGATION_ITEMS.map((item) => (
+          {MAIN_NAVIGATION_ITEMS.map((item) => (
             <li key={item.label}>
               <Anchor
                 href={item.href}

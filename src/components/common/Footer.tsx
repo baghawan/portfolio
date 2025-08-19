@@ -1,9 +1,10 @@
 import { getCurrentYear } from "@/libs/date";
 import { Anchor, Text } from "@/components/ui";
+import { EXTERNAL_NAVIGATION_ITEMS } from "@/constants";
 
 export default function Footer() {
   return (
-    <footer className='border-t border-t-neutral-200 dark:border-t-neutral-700'>
+    <footer className='border-t border-t-neutral-200 dark:border-t-neutral-700 rounded-tl-2xl rounded-tr-2xl'>
       <section className='container-fluid py-8'>
         <div>
           <Text
@@ -16,13 +17,14 @@ export default function Footer() {
           <Text variant='heading'>
             <Anchor
               href='mailto:baghawan@protonmail.com'
-              className='text-black dark:text-white'
+              variant='muted'
+              className='underline'
             >
               baghawan@protonmail.com
             </Anchor>
           </Text>
         </div>
-        <div className='mt-16'>
+        <div className='mt-16 flex flex-col md:flex-row md:items-center gap-6 justify-between'>
           <Text
             variant='caption'
             className='text-neutral-500'
@@ -30,6 +32,20 @@ export default function Footer() {
             © {getCurrentYear()} Dian Baghawan Putera — Intersecting visual
             design and functional code since &apos;15.
           </Text>
+          <ul className='inline-flex gap-4'>
+            {EXTERNAL_NAVIGATION_ITEMS.map((item, index) => (
+              <li key={index}>
+                <Anchor
+                  href={item.href}
+                  variant='muted'
+                  rel='noopener noreferrer'
+                  target='_blank'
+                >
+                  {item.label}
+                </Anchor>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
     </footer>
