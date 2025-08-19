@@ -1,5 +1,5 @@
 import React from "react";
-import { cn } from "../../lib/cn";
+import { cn } from "../../libs/cn";
 
 type TextVariant = "display" | "heading" | "subheading" | "body" | "caption";
 
@@ -13,7 +13,7 @@ export type TextProps<T extends TextElement = "p"> = {
 } & Omit<React.ComponentPropsWithoutRef<T>, "className">;
 
 const variantStyles: Record<TextVariant, string> = {
-  display: "text-4xl md:text-5xl xl:text-6xl font-medium",
+  display: "text-5xl md:text-6xl lg:text-8xl font-medium",
   heading: "text-3xl xl:text-4xl font-medium",
   subheading: "text-lg md:text-xl xl:text-2xl",
   body: "text-base",

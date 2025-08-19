@@ -8,7 +8,7 @@ export default function Home() {
         as='h1'
         className='mb-6'
       >
-        Whereas recognition of the inherent dignity
+        Dian Baghawan Putera
       </Text>
       <Text variant='subheading'>
         Hey, I’m Victor, an Independent Product Designer delivering top-tier
