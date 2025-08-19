@@ -4,7 +4,7 @@ import { EXTERNAL_NAVIGATION_ITEMS } from "@/constants";
 
 export default function Footer() {
   return (
-    <footer className='border-t border-t-neutral-200 dark:border-t-neutral-700 rounded-tl-2xl rounded-tr-2xl'>
+    <footer className='border-t border-t-neutral-200 dark:border-t-neutral-700 rounded-tl-2xl rounded-tr-2xl mt-16'>
       <section className='container-fluid py-8'>
         <Text
           variant='subheading'
