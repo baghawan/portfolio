@@ -31,6 +31,7 @@ export default function Home() {
       >
         Whereas recognition of the inherent dignity
       </Text>
+      <Text>Whereas recognition of the inherent dignity</Text>
     </section>
   );
 }

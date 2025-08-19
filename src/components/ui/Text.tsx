@@ -1,5 +1,5 @@
+import { cn } from "@/libs/cn";
 import React from "react";
-import { cn } from "../../libs/cn";
 
 type TextVariant = "display" | "heading" | "subheading" | "body" | "caption";
 

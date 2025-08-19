@@ -1,29 +1,10 @@
+import { NAVIGATION_ITEMS } from "@/constants";
 import { Anchor } from "../ui";
 import { ThemeToggle } from "./ThemeToggle";
 
-type NavigationItem = {
-  label: string;
-  href: string;
-};
-
-const NAVIGATION_ITEMS: NavigationItem[] = [
-  {
-    label: "About",
-    href: "/",
-  },
-  {
-    label: "Works",
-    href: "/",
-  },
-  {
-    label: "Journal",
-    href: "/",
-  },
-];
-
 export default function Header() {
   return (
-    <header className='py-2 px-4 mb-12 sticky top-3 lg:top-4 z-10 flex items-center justify-between lg:justify-evenly gap-2 w-[95dvw] lg:w-[500px] mx-auto border border-solid bg-[var(--background)]/60 border-gray-200 dark:border-gray-600 rounded-full backdrop-blur-sm'>
+    <header className='py-2 px-4 mb-12 sticky top-3 lg:top-4 z-10 flex items-center justify-between lg:justify-evenly gap-2 w-[95dvw] lg:w-[500px] mx-auto border border-solid bg-[var(--background)]/60 border-neutral-200 dark:border-neutral-700 rounded-full backdrop-blur-sm'>
       <Anchor
         href='/'
         variant='muted'
