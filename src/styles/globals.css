@@ -4,8 +4,8 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --site-gutter: clamp(1rem, 0.5rem + 2.5vw, 3rem);
-  --site-max: min(1536px, 100vw);
+  --site-gutter: clamp(1rem, 0.5rem + 3vw, 3.5rem);
+  --site-max: min(1440px, 100vw);
 }
 
 @theme {
@@ -83,7 +83,6 @@ body {
 
 @layer base {
   .container-fluid {
-    /* @apply px-4 w-full max-w-screen-xl mx-auto; */
     max-width: var(--container--main);
     margin: 0 auto;
   }

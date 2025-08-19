@@ -23,7 +23,7 @@ const NAVIGATION_ITEMS: NavigationItem[] = [
 
 export default function Header() {
   return (
-    <header className='py-6 mb-8 sticky top-0 flex items-center justify-between gap-4 container-fluid'>
+    <header className='py-2 px-4 mb-12 sticky top-3 lg:top-4 z-10 flex items-center justify-between lg:justify-evenly gap-2 w-[95dvw] lg:w-[500px] mx-auto border border-solid bg-[var(--background)]/60 border-gray-200 dark:border-gray-600 rounded-full backdrop-blur-sm'>
       <Anchor
         href='/'
         variant='muted'
@@ -31,14 +31,14 @@ export default function Header() {
       >
         B
       </Anchor>
-      <nav className=' p-1.5 w-fit mx-auto border border-solid border-gray-200 dark:border-gray-600 rounded-full bg-[var(--background)]/65 z-10 backdrop-blur-md'>
-        <ul className='flex gap-2 items-center'>
+      <nav>
+        <ul className='flex gap-1 items-center'>
           {NAVIGATION_ITEMS.map((item) => (
             <li key={item.label}>
               <Anchor
                 href={item.href}
                 variant='muted'
-                className='px-6 py-2 rounded-full hover:bg-gray-50 dark:hover:bg-gray-100 font-medium'
+                className='px-4 md:px-6 py-2 rounded-full hover:bg-gray-50 dark:hover:bg-gray-100 text-sm md:text-base font-medium'
               >
                 {item.label}
               </Anchor>
