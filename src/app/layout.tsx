@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Reddit_Sans } from "next/font/google";
-import { HOMEPAGE_SEO } from "@/constants";
+import { DEFAULT_SEO } from "@/constants";
 import { ThemeProvider } from "@/components/common/ThemeProvider";
 import Header from "@/components/common/Header";
 import Footer from "@/components/common/Footer";
@@ -11,7 +11,7 @@ const redditSans = Reddit_Sans({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = HOMEPAGE_SEO;
+export const metadata: Metadata = DEFAULT_SEO;
 
 export default function RootLayout({
   children,

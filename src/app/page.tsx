@@ -2,7 +2,7 @@ import { Text } from "@/components/ui";
 
 export default function Home() {
   return (
-    <section className='container-fluid h-[3000px]'>
+    <section className='container-fluid'>
       <Text
         variant='display'
         as='h1'

@@ -1,3 +1,3 @@
 export default function Footer() {
-  return <footer>this is a footer</footer>;
+  return <footer className='container-fluid'>this is a footer</footer>;
 }
