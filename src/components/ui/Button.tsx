@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { cn } from "../../libs/cn";
+import { cn } from "../../utils/cn";
 
 export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   variant?: "primary" | "secondary";

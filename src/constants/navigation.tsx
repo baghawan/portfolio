@@ -9,15 +9,15 @@ type NavigationItem = {
 export const MAIN_NAVIGATION_ITEMS: NavigationItem[] = [
   {
     label: "About",
-    href: "/",
+    href: "/about",
   },
   {
-    label: "Works",
-    href: "/",
+    label: "Work",
+    href: "/work",
   },
   {
     label: "Journal",
-    href: "/",
+    href: "/journal",
   },
 ];
 

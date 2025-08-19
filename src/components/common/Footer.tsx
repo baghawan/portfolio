@@ -1,4 +1,4 @@
-import { getCurrentYear } from "@/libs/date";
+import { getCurrentYear } from "@/utils/date";
 import { Anchor, Text } from "@/components/ui";
 import { EXTERNAL_NAVIGATION_ITEMS } from "@/constants";
 
@@ -6,24 +6,22 @@ export default function Footer() {
   return (
     <footer className='border-t border-t-neutral-200 dark:border-t-neutral-700 rounded-tl-2xl rounded-tr-2xl'>
       <section className='container-fluid py-8'>
-        <div>
-          <Text
-            variant='subheading'
-            as='h3'
-            className='text-neutral-500 mb-2'
+        <Text
+          variant='subheading'
+          as='h3'
+          className='text-neutral-500 mb-2'
+        >
+          Let&apos;s work together
+        </Text>
+        <Text variant='heading'>
+          <Anchor
+            href='mailto:baghawan@protonmail.com'
+            variant='muted'
+            className='underline'
           >
-            Let&apos;s work together
-          </Text>
-          <Text variant='heading'>
-            <Anchor
-              href='mailto:baghawan@protonmail.com'
-              variant='muted'
-              className='underline'
-            >
-              baghawan@protonmail.com
-            </Anchor>
-          </Text>
-        </div>
+            baghawan@protonmail.com
+          </Anchor>
+        </Text>
         <div className='mt-16 flex flex-col md:flex-row md:items-center gap-6 justify-between'>
           <Text
             variant='caption'

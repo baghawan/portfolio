@@ -13,7 +13,7 @@ const redditSans = Reddit_Sans({
 
 export const metadata: Metadata = DEFAULT_SEO;
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
@@ -21,6 +21,7 @@ export default function RootLayout({
   return (
     <html
       lang='en'
+      data-scroll-behavior='smooth'
       suppressHydrationWarning
     >
       <body className={`${redditSans.variable}`}>
@@ -31,6 +32,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Header />
+
           <main>{children}</main>
           <Footer />
         </ThemeProvider>
