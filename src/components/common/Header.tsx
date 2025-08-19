@@ -38,7 +38,7 @@ export default function Header() {
               <Anchor
                 href={item.href}
                 variant='muted'
-                className='px-4 md:px-6 py-2 rounded-full hover:bg-gray-50 dark:hover:bg-gray-100 text-sm md:text-base font-medium'
+                className='px-4 md:px-6 py-2 rounded-full hover:bg-neutral-100 text-sm md:text-base font-medium'
               >
                 {item.label}
               </Anchor>
