@@ -1,4 +1,4 @@
-import { Anchor } from "@/components/ui/Anchor";
+import { Anchor } from "../ui";
 import { ThemeToggle } from "./ThemeToggle";
 
 type NavigationItem = {

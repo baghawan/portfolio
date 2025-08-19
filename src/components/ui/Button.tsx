@@ -19,7 +19,7 @@ const SIZE_CLASSES: Record<NonNullable<ButtonProps["size"]>, string> = {
   lg: "px-5 py-3 text-lg",
 };
 
-export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (
     { className, variant = "primary", size = "md", children, ...props },
     ref
@@ -40,4 +40,6 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     );
   }
 );
+
 Button.displayName = "Button";
+export default Button;

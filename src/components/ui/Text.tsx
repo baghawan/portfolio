@@ -20,7 +20,7 @@ const variantStyles: Record<TextVariant, string> = {
   caption: "text-sm",
 };
 
-export function Text<T extends TextElement = "p">({
+export default function Text<T extends TextElement = "p">({
   variant = "body",
   as,
   className,

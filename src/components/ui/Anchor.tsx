@@ -13,7 +13,7 @@ export type AnchorProps = {
 > &
   Omit<LinkProps, "href" | "className" | "children">;
 
-export function Anchor({
+export default function Anchor({
   href,
   children,
   className,
