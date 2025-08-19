@@ -14,7 +14,7 @@ export type TextProps<T extends TextElement = "p"> = {
 
 const variantStyles: Record<TextVariant, string> = {
   display: "text-5xl md:text-6xl lg:text-8xl font-medium",
-  heading: "text-3xl xl:text-4xl font-medium",
+  heading: "text-2xl md:text-3xl lg:text-4xl font-medium",
   subheading: "text-lg md:text-xl xl:text-2xl",
   body: "text-base",
   caption: "text-sm",

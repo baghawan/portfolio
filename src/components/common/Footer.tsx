@@ -1,5 +1,5 @@
 import { getCurrentYear } from "@/libs/date";
-import { Text } from "@/components/ui";
+import { Anchor, Text } from "@/components/ui";
 
 export default function Footer() {
   return (
@@ -9,12 +9,20 @@ export default function Footer() {
           <Text
             variant='subheading'
             as='h3'
-            className='text-neutral-500'
+            className='text-neutral-500 mb-2'
           >
             Let&apos;s work together
           </Text>
+          <Text variant='heading'>
+            <Anchor
+              href='mailto:baghawan@protonmail.com'
+              className='text-black dark:text-white'
+            >
+              baghawan@protonmail.com
+            </Anchor>
+          </Text>
         </div>
-        <div className='mt-8'>
+        <div className='mt-16'>
           <Text
             variant='caption'
             className='text-neutral-500'
