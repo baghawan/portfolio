@@ -33,7 +33,7 @@ export default async function RootLayout({
         >
           <Header />
 
-          <main>{children}</main>
+          <main className='flex flex-col gap-16 lg:gap-24'>{children}</main>
           <Footer />
         </ThemeProvider>
       </body>

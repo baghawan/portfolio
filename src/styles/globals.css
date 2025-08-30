@@ -4,7 +4,7 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --site-gutter: clamp(1rem, 0.5rem + 3vw, 3.5rem);
+  --site-gutter: clamp(1rem, 1.25rem, 3.5rem);
   --site-max: min(1440px, 100vw);
 }
 
@@ -44,6 +44,7 @@ body {
 
 @layer base {
   .container-fluid {
+    width: 100%;
     max-width: var(--container--main);
     margin: 0 auto;
   }

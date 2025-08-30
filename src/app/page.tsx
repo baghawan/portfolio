@@ -1,15 +1,19 @@
-import { Text } from "@/components/ui";
+import { FeaturedJournals, FeaturedWorks, Intro } from "@/features/home";
+import { mockHome } from "@/features/home/mock";
 
 export default function Home() {
+  const {
+    intro: { title, description },
+  } = mockHome;
+
   return (
-    <section className='container-fluid h-[1000px]'>
-      <Text
-        variant='display'
-        as='h1'
-        className='mb-6'
-      >
-        Plan, Build, Optimize, Iterate
-      </Text>
-    </section>
+    <>
+      <Intro
+        title={title}
+        description={description}
+      />
+      <FeaturedWorks />
+      <FeaturedJournals />
+    </>
   );
 }

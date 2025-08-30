@@ -13,7 +13,7 @@ export type TextProps<T extends TextElement = "p"> = {
 } & Omit<React.ComponentPropsWithoutRef<T>, "className">;
 
 const variantStyles: Record<TextVariant, string> = {
-  display: "text-5xl md:text-6xl lg:text-8xl font-medium",
+  display: "text-4xl md:text-6xl lg:text-8xl font-medium",
   heading: "text-2xl md:text-3xl lg:text-4xl font-medium",
   subheading: "text-lg md:text-xl xl:text-2xl",
   body: "text-base",
