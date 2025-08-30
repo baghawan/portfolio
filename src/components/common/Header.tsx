@@ -15,7 +15,7 @@ export default function Header() {
       <Anchor
         href='/'
         variant='muted'
-        className='font-black text-3xl'
+        className='font-black text-3xl text-green-700'
       >
         B
       </Anchor>
@@ -27,9 +27,9 @@ export default function Header() {
                 href={item.href}
                 variant='muted'
                 className={cn(
-                  "px-4 md:px-6 py-2 rounded-full hover:bg-neutral-100 text-sm md:text-base font-medium relative",
+                  "px-4 md:px-6 py-2 rounded-full hover:bg-neutral-100 dark:hover:bg-neutral-800 text-sm md:text-base font-medium relative",
                   isActivePath(pathname, item.href) &&
-                    "after:absolute after:left-1/2 after:-translate-x-1/2 after:border-3 after:border-solid after:border-[var(--background)] after:-bottom-[17px] after:md:-bottom-[15px] after:h-3.5 after:w-3.5 after:rounded-full after:bg-yellow-400 after:content-['']"
+                    "after:absolute after:left-1/2 after:-translate-x-1/2 after:border-3 after:border-solid after:border-[var(--background)] after:-bottom-[17px] after:md:-bottom-[15px] after:h-3.5 after:w-3.5 after:rounded-full after:bg-green-700 after:content-['']"
                 )}
               >
                 {item.label}

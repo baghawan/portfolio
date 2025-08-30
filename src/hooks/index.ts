@@ -1,0 +1,1 @@
+export { useEntranceMotion } from "./motion";

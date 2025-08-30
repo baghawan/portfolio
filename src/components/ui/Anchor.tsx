@@ -24,7 +24,7 @@ export default function Anchor({
     "inline-flex items-center gap-2 underline-offset-4 transition-colors",
     variant === "link"
       ? "text-indigo-600 hover:underline"
-      : "text-muted-foreground hover:text-gray-600",
+      : "text-muted-foreground",
     className
   );
 

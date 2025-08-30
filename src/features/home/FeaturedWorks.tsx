@@ -2,10 +2,11 @@ import { Text } from "@/components/ui";
 
 export default function FeaturedWorks() {
   return (
-    <section>
-      <div className='px-5 w-full h-[80dvh]'>
+    <section className='bg-neutral-100 dark:bg-neutral-900'>
+      <div className='container-fluid py-16 h-[300px]'>
         <Text
-          variant='subheading'
+          variant='heading'
+          as='h2'
           className='mb-6'
         >
           Featured Works

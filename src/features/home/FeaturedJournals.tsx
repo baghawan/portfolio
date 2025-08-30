@@ -5,7 +5,8 @@ export default function FeaturedJournals() {
     <section className='container-fluid'>
       <div className='w-full'>
         <Text
-          variant='subheading'
+          variant='heading'
+          as='h2'
           className='mb-6'
         >
           Featured Journals
