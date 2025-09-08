@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Reddit_Sans } from "next/font/google";
+import { LazyMotion, domMax } from "motion/react";
 import { DEFAULT_SEO } from "@/constants";
 import { ThemeProvider } from "@/components/common/ThemeProvider";
 import Header from "@/components/common/Header";
@@ -31,10 +32,12 @@ export default async function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <Header />
+          <LazyMotion features={domMax}>
+            <Header />
 
-          <main className='flex flex-col gap-16 lg:gap-24'>{children}</main>
-          <Footer />
+            <main className='flex flex-col gap-16 lg:gap-24'>{children}</main>
+            <Footer />
+          </LazyMotion>
         </ThemeProvider>
       </body>
     </html>

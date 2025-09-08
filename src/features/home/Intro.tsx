@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "motion/react";
+import * as m from "motion/react-m";
 import type { HomeIntro } from "./models";
 import { Text } from "@/components/ui";
 import { useEntranceMotion } from "@/hooks";
@@ -11,7 +11,7 @@ export default function Intro({ title, description }: HomeIntro) {
   return (
     <section className='container-fluid md:h-[35dvh] xl:h-[55dvh] md:flex md:items-center'>
       <div className='w-full max-w-[700px] lg:max-w-[960px] mx-auto text-center'>
-        <motion.div
+        <m.div
           initial={initial}
           animate={animate}
           transition={transition(0.3)}
@@ -23,9 +23,9 @@ export default function Intro({ title, description }: HomeIntro) {
           >
             {title}
           </Text>
-        </motion.div>
+        </m.div>
 
-        <motion.div
+        <m.div
           initial={initial}
           animate={animate}
           transition={transition(0.4)}
@@ -36,7 +36,7 @@ export default function Intro({ title, description }: HomeIntro) {
           >
             {description}
           </Text>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

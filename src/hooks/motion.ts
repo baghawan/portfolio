@@ -11,17 +11,19 @@ import { useReducedMotion } from "motion/react";
 export function useEntranceMotion() {
   const reduce = useReducedMotion();
 
-  const initial = reduce ? { y: 0, opacity: 1 } : { y: 20, opacity: 0 };
-  const animate = { y: 0, opacity: 1 };
+  const initial = reduce
+    ? { y: 0, opacity: 1, filter: "none" }
+    : { y: 20, opacity: 0, filter: "blur(15px)" };
+  const animate = { y: 0, opacity: 1, filter: "none" };
 
   const yTransition: ValueTransition = {
     type: "spring",
-    visualDuration: 0.3,
+    visualDuration: 0.4,
     bounce: 0.5,
   };
 
   const transition = (delay = 0) => ({
-    duration: 0.2,
+    duration: 0.4,
     delay,
     y: {
       ...yTransition,
