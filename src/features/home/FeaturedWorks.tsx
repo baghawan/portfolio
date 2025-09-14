@@ -2,8 +2,8 @@ import { Text } from "@/components/ui";
 
 export default function FeaturedWorks() {
   return (
-    <section className='bg-neutral-100 dark:bg-neutral-900'>
-      <div className='container-fluid py-16 h-[300px]'>
+    <section>
+      <div className='container-fluid'>
         <Text
           variant='heading'
           as='h2'

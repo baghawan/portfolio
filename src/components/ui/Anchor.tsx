@@ -1,6 +1,6 @@
 import React from "react";
 import Link, { type LinkProps } from "next/link";
-import { cn } from "../../utils/cn";
+import { cn } from "@/utils/cn";
 
 export type AnchorProps = {
   href: string;
