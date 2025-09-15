@@ -3,7 +3,7 @@ import { Slider } from "@/components/common/Slider";
 
 const SLIDES = 6;
 
-export default function FeaturedJournals() {
+export default function LatestJournals() {
   const renderPlaceholderCards = () => {
     return Array.from(Array(SLIDES).keys()).map((_, i) => (
       <div
