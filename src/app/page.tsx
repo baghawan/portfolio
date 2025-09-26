@@ -14,25 +14,27 @@ export default function Home() {
   } = mockHome;
 
   return (
-    <>
+    <div className='flex flex-col gap-16 lg:gap-24'>
       <Intro
         title={title}
         description={description}
       />
       <FeaturedWorks />
-      <section className='py-2 md:py-8'>
-        <MarqueeBlock>
-          <Text
-            as='span'
-            variant='display'
-            className='px-4 lg:px-6 italic'
-          >
-            Dian Baghawan Putera
-          </Text>
-          <MorphedShapes className='pl-4 pr-2' />
-        </MarqueeBlock>
-      </section>
       <LatestJournals />
-    </>
+      <section>
+        <div className='border-t border-solid border-t-neutral-200 dark:border-t-neutral-700 py-1'>
+          <MarqueeBlock>
+            <Text
+              as='span'
+              variant='heading'
+              className='px-4 lg:px-6 uppercase'
+            >
+              Dian Baghawan Putera
+            </Text>
+            <MorphedShapes className='pl-4 pr-2' />
+          </MarqueeBlock>
+        </div>
+      </section>
+    </div>
   );
 }

@@ -4,8 +4,8 @@ import { EXTERNAL_NAVIGATION_ITEMS } from "@/constants";
 
 export default function Footer() {
   return (
-    <footer className='border-t border-t-neutral-200 dark:border-t-neutral-700 rounded-tl-2xl rounded-tr-2xl mt-16'>
-      <section className='container-fluid py-8'>
+    <footer className='border-t border-t-neutral-200 dark:border-t-neutral-700 rounded-tl-2xl rounded-tr-2xl'>
+      <section className='container-fluid py-12'>
         <Text
           variant='subheading'
           as='h3'
@@ -22,7 +22,7 @@ export default function Footer() {
             baghawan@protonmail.com
           </Anchor>
         </Text>
-        <div className='mt-16 flex flex-col md:flex-row md:items-center gap-6 justify-between'>
+        <div className='mt-24 md:mt-32 flex flex-col md:flex-row md:items-center gap-6 justify-between'>
           <Text
             variant='caption'
             className='text-neutral-500'

@@ -118,12 +118,10 @@ export default function MarqueeBlock({
           const isFirst = i === 0;
           return (
             <div
-              // use a block-level wrapper for measurement & layout consistency
               key={i}
               ref={isFirst ? itemRef : undefined}
               className='py-2 flex items-center'
               style={{
-                // GPU hints per item
                 transform: "translate3d(0,0,0)",
                 WebkitTransform: "translate3d(0,0,0)",
                 willChange: "transform",
