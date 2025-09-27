@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Reddit_Sans } from "next/font/google";
+import { Manrope } from "next/font/google";
 import { LazyMotion, domMax } from "motion/react";
 import { DEFAULT_SEO } from "@/constants";
 import { ThemeProvider } from "@/components/common/ThemeProvider";
@@ -7,8 +7,8 @@ import Header from "@/components/common/Header";
 import Footer from "@/components/common/Footer";
 import "@/styles/globals.css";
 
-const redditSans = Reddit_Sans({
-  variable: "--font-reddit-sans",
+const manrope = Manrope({
+  variable: "--font-manrope",
   subsets: ["latin"],
 });
 
@@ -25,7 +25,7 @@ export default async function RootLayout({
       data-scroll-behavior='smooth'
       suppressHydrationWarning
     >
-      <body className={`${redditSans.variable}`}>
+      <body className={`${manrope.variable}`}>
         <ThemeProvider
           attribute='class'
           defaultTheme='system'

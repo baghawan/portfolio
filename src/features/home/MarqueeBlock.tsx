@@ -53,6 +53,7 @@ export default function MarqueeBlock({
   const [singleWidth, setSingleWidth] = useState<number>(0);
   const [repeatCount, setRepeatCount] = useState<number>(repeat);
 
+  const directionRef = useRef(1);
   // Measure the width of a single "item" (the children wrapper) and the container,
   // then compute how many repeats we need to fill the container.
   useLayoutEffect(() => {
@@ -89,12 +90,21 @@ export default function MarqueeBlock({
     if (singleWidth === 0) return; // not measured yet
 
     const rawFactor = velocityFactor.get();
-    const factor = Math.abs(rawFactor) < threshold ? 0 : rawFactor;
 
-    // Invert sign: scrolling down (factor > 0) => move left (negative).
-    const moveBy = -1 * (delta / 1000) * speed * factor;
+    // Update direction if user actually scrolled
+    if (Math.abs(rawFactor) >= threshold) {
+      // scrolling down (rawFactor > 0) → left drift (-1)
+      directionRef.current = rawFactor > 0 ? -1 : 1;
+    }
 
-    // Keep baseX bounded between -singleWidth and 0 to avoid drifting large numbers
+    // Always move according to last direction
+    const baseMove = (delta / 1000) * speed * directionRef.current;
+
+    // Add velocity-based "boost" while scrolling
+    const velocityMove = -(delta / 1000) * speed * rawFactor;
+
+    const moveBy = baseMove + velocityMove;
+
     const next = wrap(-singleWidth, 0, baseX.get() + moveBy);
     baseX.set(next);
   });

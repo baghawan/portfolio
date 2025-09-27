@@ -1,4 +1,5 @@
-import { Card, Text } from "@/components/ui";
+import { Anchor, Card, Text } from "@/components/ui";
+import { ArrowRightIcon } from "@radix-ui/react-icons";
 import { cn } from "@/utils/cn";
 
 const ITEMS = 4;
@@ -28,14 +29,25 @@ export default function FeaturedWorks() {
 
   return (
     <section>
-      <div className='container-fluid'>
+      <div className='container-fluid flex items-center justify-between mb-6'>
         <Text
           variant='heading'
           as='h2'
-          className='mb-6'
         >
           Featured Works
         </Text>
+
+        <Anchor
+          href='/work'
+          variant='muted'
+        >
+          <span>See All</span>
+          <ArrowRightIcon
+            width={18}
+            height={18}
+            aria-hidden
+          />
+        </Anchor>
       </div>
       <div className='container-fluid flex gap-4 flex-wrap'>
         {renderPlaceholderCards()}

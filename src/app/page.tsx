@@ -5,6 +5,7 @@ import {
   FeaturedWorks,
   Intro,
   MarqueeBlock,
+  Expertise,
 } from "@/features/home";
 import { mockHome } from "@/features/home/mock";
 
@@ -20,6 +21,7 @@ export default function Home() {
         description={description}
       />
       <FeaturedWorks />
+      <Expertise />
       <LatestJournals />
       <section>
         <div className='border-t border-solid border-t-neutral-200 dark:border-t-neutral-700 py-1'>
@@ -27,7 +29,7 @@ export default function Home() {
             <Text
               as='span'
               variant='heading'
-              className='px-4 lg:px-6 uppercase'
+              className='px-4 lg:px-6 uppercase italic'
             >
               Dian Baghawan Putera
             </Text>
