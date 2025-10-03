@@ -1,12 +1,6 @@
-"use client";
-
-import * as m from "motion/react-m";
 import { Text } from "@/components/ui";
-import { useEntranceMotion } from "@/hooks";
 
 export default function Intro() {
-  const { initial, animate, transition } = useEntranceMotion();
-
   return (
     <section className='container-fluid min-h-[65dvh] md:min-h-[60dvh] xl:min-h-[70dvh] flex flex-col gap-8 md:gap-12 justify-end-safe pb-6 xl:pb-12'>
       <div className='w-full max-w-[500px]'>
