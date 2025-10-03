@@ -1,15 +1,9 @@
-import { Text } from "@/components/ui";
+import { Intro } from "@/features/about";
 
 export default function About() {
   return (
-    <section className='container-fluid'>
-      <Text
-        variant='display'
-        as='h1'
-        className='mb-6'
-      >
-        About
-      </Text>
-    </section>
+    <div className='flex flex-col gap-16 lg:gap-24'>
+      <Intro />
+    </div>
   );
 }
