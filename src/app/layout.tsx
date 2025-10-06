@@ -35,7 +35,7 @@ export default async function RootLayout({
           <LazyMotion features={domMax}>
             <Header />
 
-            <main>{children}</main>
+            <main className='flex flex-col gap-16'>{children}</main>
             <Footer />
           </LazyMotion>
         </ThemeProvider>

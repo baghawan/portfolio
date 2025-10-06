@@ -64,7 +64,7 @@ export default function Expertise() {
             </Accordion.Header>
             <Accordion.Panel className='container-fluid will-change-auto h-[var(--accordion-panel-height)] overflow-hidden text-base transition-[height] ease-out data-[ending-style]:h-0 data-[starting-style]:h-0'>
               <div className='pt-4 pb-2 flex gap-6 flex-wrap'>
-                <div className='flex flex-col gap-6 md:flex-1/2 md:grow-0'>
+                <div className='flex flex-col gap-6 lg:flex-1/2 lg:grow-0'>
                   <Text
                     variant='body'
                     className='text-neutral-500 dark:text-neutral-500'

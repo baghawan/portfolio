@@ -18,8 +18,9 @@ import {
 interface MarqueeProps {
   children: React.ReactNode;
   speed?: number;
-  threshold?: number;
+  threshold?: number; // scroll sensitivity, not direction
   repeat?: number;
+  reverse?: boolean; // flips direction of scroll + idle drift
 }
 
 export default function MarqueeBlock({
@@ -27,14 +28,12 @@ export default function MarqueeBlock({
   speed = 100,
   threshold = 0.02,
   repeat = 3,
+  reverse = false,
 }: MarqueeProps) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const itemRef = useRef<HTMLDivElement | null>(null);
 
-  // Motion value for horizontal offset (px)
   const baseX = useMotionValue<number>(0);
-
-  // scroll velocity (smoothed)
   const { scrollY } = useScroll();
   const scrollVelocity = useVelocity(scrollY);
   const smoothVelocity = useSpring(scrollVelocity, {
@@ -42,7 +41,6 @@ export default function MarqueeBlock({
     stiffness: 400,
   });
 
-  // map scroll velocity -> factor (-5..5 in this mapping)
   const velocityFactor = useTransform(
     smoothVelocity,
     [-1000, 0, 1000],
@@ -53,9 +51,9 @@ export default function MarqueeBlock({
   const [singleWidth, setSingleWidth] = useState<number>(0);
   const [repeatCount, setRepeatCount] = useState<number>(repeat);
 
-  const directionRef = useRef(1);
-  // Measure the width of a single "item" (the children wrapper) and the container,
-  // then compute how many repeats we need to fill the container.
+  const directionRef = useRef(1); // 1 = right, -1 = left
+
+  // Measure item and container widths
   useLayoutEffect(() => {
     if (!containerRef.current || !itemRef.current) return;
 
@@ -68,8 +66,6 @@ export default function MarqueeBlock({
       const count = Math.max(2, Math.ceil(containerWidth / oneWidth) + 2);
       setSingleWidth(oneWidth);
       setRepeatCount(count);
-
-      // reset baseX so the wrap starts clean after layout changes
       baseX.set(0);
     };
 
@@ -80,31 +76,29 @@ export default function MarqueeBlock({
     ro.observe(itemRef.current);
 
     return () => ro.disconnect();
-    // intentionally omitting exhaustive-deps to avoid reattaching observer often
   }, [children]);
 
-  // Strongly-typed motion style (no `any` cast)
   const motionStyle: MotionStyle = { x: baseX as MotionValue<number> };
 
   useAnimationFrame((t, delta) => {
-    if (singleWidth === 0) return; // not measured yet
+    if (singleWidth === 0) return;
 
     const rawFactor = velocityFactor.get();
+    const directionSign = reverse ? -1 : 1;
 
-    // Update direction if user actually scrolled
+    // update direction if user scrolls beyond threshold
     if (Math.abs(rawFactor) >= threshold) {
-      // scrolling down (rawFactor > 0) → left drift (-1)
-      directionRef.current = rawFactor > 0 ? -1 : 1;
+      directionRef.current =
+        rawFactor > 0 ? -1 * directionSign : 1 * directionSign;
     }
 
-    // Always move according to last direction
+    // base idle motion
     const baseMove = (delta / 1000) * speed * directionRef.current;
 
-    // Add velocity-based "boost" while scrolling
-    const velocityMove = -(delta / 1000) * speed * rawFactor;
+    // scroll-based boost
+    const velocityMove = -(delta / 1000) * speed * rawFactor * directionSign;
 
     const moveBy = baseMove + velocityMove;
-
     const next = wrap(-singleWidth, 0, baseX.get() + moveBy);
     baseX.set(next);
   });

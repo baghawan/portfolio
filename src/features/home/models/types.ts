@@ -3,6 +3,9 @@ export type HomeIntro = Readonly<{
   description: string;
 }>;
 
+export type HomeExpertise = Readonly<string[]>;
+
 export type Home = Readonly<{
   intro: HomeIntro;
+  expertise: HomeExpertise;
 }>;

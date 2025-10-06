@@ -19,7 +19,7 @@ export default function LatestJournals() {
   };
 
   return (
-    <section>
+    <section className='mb-16'>
       <div className='container-fluid flex items-center justify-between mb-6'>
         <Text
           variant='heading'

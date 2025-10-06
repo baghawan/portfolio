@@ -1,1 +1,1 @@
-export type { Home, HomeIntro } from "./types";
+export type { Home, HomeIntro, HomeExpertise } from "./types";

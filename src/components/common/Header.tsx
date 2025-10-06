@@ -11,11 +11,11 @@ export default function Header() {
   const pathname = usePathname();
 
   return (
-    <header className='py-2 px-4 mb-16 xl:mb-24 sticky top-3 lg:top-4 z-10 flex items-center justify-between lg:justify-evenly gap-2 w-[95dvw] lg:w-[500px] mx-auto border border-solid bg-[var(--background)]/60 border-neutral-200 dark:border-neutral-700 rounded-full backdrop-blur-sm'>
+    <header className='py-1 px-5 mb-16 xl:mb-24 sticky top-3 lg:top-4 z-10 flex items-center justify-between lg:justify-evenly gap-2 w-[95dvw] md:w-[400px] mx-auto border border-solid bg-[var(--background)]/60 border-neutral-200 dark:border-neutral-700 rounded-full backdrop-blur-sm'>
       <Anchor
         href='/'
         variant='muted'
-        className='font-black text-3xl text-green-700'
+        className='font-black text-xl'
       >
         B
       </Anchor>
@@ -27,9 +27,9 @@ export default function Header() {
                 href={item.href}
                 variant='muted'
                 className={cn(
-                  "px-4 md:px-6 py-2 rounded-full hover:bg-neutral-100 dark:hover:bg-neutral-800 text-sm md:text-base font-medium relative",
+                  "px-4 md:px-5 py-2 rounded-full hover:bg-neutral-100 dark:hover:bg-neutral-800 text-sm font-medium relative",
                   isActivePath(pathname, item.href) &&
-                    "after:absolute after:left-1/2 after:-translate-x-1/2 after:border-3 after:border-solid after:border-[var(--background)] after:-bottom-[17px] after:md:-bottom-[15px] after:h-3.5 after:w-3.5 after:rounded-full after:bg-green-700 after:content-['']"
+                    "after:absolute after:left-1/2 after:-translate-x-1/2 after:border-3 after:border-solid after:border-[var(--background)] after:-bottom-[12px] after:h-3.5 after:w-3.5 after:rounded-full after:bg-neutral-700 dark:after:bg-neutral-200 after:content-['']"
                 )}
               >
                 {item.label}

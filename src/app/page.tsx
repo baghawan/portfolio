@@ -5,30 +5,46 @@ import {
   FeaturedWorks,
   Intro,
   MarqueeBlock,
-  Expertise,
 } from "@/features/home";
 import { mockHome } from "@/features/home/mock";
+import { Fragment } from "react";
 
 export default function Home() {
   const {
     intro: { title, description },
+    expertise,
   } = mockHome;
 
   return (
-    <div className='flex flex-col gap-16 lg:gap-24'>
+    <>
       <Intro
         title={title}
         description={description}
       />
       <FeaturedWorks />
-      <Expertise />
-      <LatestJournals />
       <section>
-        <div className='border-t border-solid border-t-neutral-200 dark:border-t-neutral-700 py-1'>
+        <div className='border-y border-solid border-y-neutral-200 dark:border-y-neutral-700 py-1'>
           <MarqueeBlock>
+            {expertise.map((item, index) => (
+              <Fragment key={index}>
+                <Text
+                  key={index}
+                  as='span'
+                  variant='display'
+                  className='px-4 lg:px-6 uppercase italic'
+                >
+                  {item}
+                </Text>
+                <MorphedShapes className='pl-4 pr-2' />
+              </Fragment>
+            ))}
+          </MarqueeBlock>
+        </div>
+        <div className='border-y border-solid border-y-neutral-200 dark:border-y-neutral-700 py-1'>
+          <MarqueeBlock reverse>
             <Text
               as='span'
-              variant='heading'
+              variant='display'
               className='px-4 lg:px-6 uppercase italic'
             >
               Dian Baghawan Putera
@@ -37,6 +53,7 @@ export default function Home() {
           </MarqueeBlock>
         </div>
       </section>
-    </div>
+      <LatestJournals />
+    </>
   );
 }
