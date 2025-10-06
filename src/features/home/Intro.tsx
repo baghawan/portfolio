@@ -9,7 +9,7 @@ export default function Intro({ title, description }: HomeIntro) {
   const { initial, animate, transition } = useEntranceMotion();
 
   return (
-    <section className='container-fluid md:h-[35dvh] xl:h-[55dvh] md:flex md:items-center'>
+    <section className='container-fluid h-[50dvh] xl:h-[75dvh] flex items-center'>
       <div className='w-full max-w-[700px] lg:max-w-[960px] mx-auto text-center'>
         <m.div
           initial={initial}

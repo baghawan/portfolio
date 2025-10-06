@@ -2,7 +2,7 @@ import { Text } from "@/components/ui";
 
 export default function Intro() {
   return (
-    <section className='container-fluid min-h-[67dvh] md:min-h-[50dvh] xl:min-h-[70dvh] flex flex-col gap-8 lg:gap-12 justify-end-safe pb-6 xl:pb-12'>
+    <section className='container-fluid min-h-[65dvh] md:min-h-[50dvh] xl:min-h-[75dvh] flex flex-col gap-8 lg:gap-12 justify-end-safe pb-6 xl:pb-12'>
       <div className='w-full max-w-[500px]'>
         <Text
           variant='display'

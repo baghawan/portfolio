@@ -11,7 +11,7 @@ export default function Header() {
   const pathname = usePathname();
 
   return (
-    <header className='py-1 px-5 mb-16 xl:mb-24 sticky top-3 lg:top-4 z-10 flex items-center justify-between lg:justify-evenly gap-2 w-[95dvw] md:w-[400px] mx-auto border border-solid bg-[var(--background)]/60 border-neutral-200 dark:border-neutral-700 rounded-full backdrop-blur-sm'>
+    <header className='py-1 px-5 fixed top-3 left-1/2 -translate-x-1/2 lg:top-4 z-10 flex items-center justify-between lg:justify-evenly gap-2 w-full max-w-[95dvw] md:max-w-[400px] mx-auto border border-solid bg-[var(--background)]/60 border-neutral-200 dark:border-neutral-700 rounded-full backdrop-blur-sm'>
       <Anchor
         href='/'
         variant='muted'
