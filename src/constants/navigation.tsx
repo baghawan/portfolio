@@ -12,12 +12,12 @@ export const MAIN_NAVIGATION_ITEMS: NavigationItem[] = [
     href: "/about",
   },
   {
-    label: "Work",
-    href: "/work",
+    label: "Works",
+    href: "/works",
   },
   {
-    label: "Journal",
-    href: "/journal",
+    label: "Journals",
+    href: "/journals",
   },
 ];
 

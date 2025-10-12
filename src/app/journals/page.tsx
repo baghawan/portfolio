@@ -2,13 +2,12 @@ import { Text } from "@/components/ui";
 
 export default function Journal() {
   return (
-    <section className='container-fluid'>
+    <section className='container-fluid pt-8 xl:pt-12'>
       <Text
-        variant='display'
         as='h1'
-        className='mb-6'
+        variant='display'
       >
-        Journal
+        Journals
       </Text>
     </section>
   );

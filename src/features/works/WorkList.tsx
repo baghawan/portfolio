@@ -4,7 +4,7 @@ const ITEMS = 12;
 
 export default function WorkList() {
   return (
-    <section className='py-16 container-fluid grid grid-cols-1 gap-x-4 gap-y-8 md:grid-cols-2 lg:grid-cols-3'>
+    <section className='pb-16 container-fluid grid grid-cols-1 gap-x-4 gap-y-8 md:grid-cols-2 lg:grid-cols-3'>
       {Array.from(Array(ITEMS).keys()).map((_, i) => (
         <div key={i}>
           <div className='py-2 border-t border-solid border-t-neutral-200 dark:border-t-neutral-700 mb-3'>
