@@ -2,15 +2,21 @@
 
 import { useEffect } from "react";
 
+interface ExtendedError extends Error {
+  digest?: string;
+  status?: number;
+  payload?: Record<string, unknown> | null;
+}
+
 export default function Error({
   error,
   reset,
 }: {
-  error: Error & { digest?: string };
+  error: ExtendedError;
   reset: () => void;
 }) {
   useEffect(() => {
-    console.error(error);
+    console.error("Captured error:", error);
   }, [error]);
 
   return (
@@ -32,13 +38,22 @@ export default function Error({
               />
             </svg>
           </div>
+
           <div className='ml-3'>
             <h3 className='text-sm font-medium text-gray-800'>
-              Something went wrong!
+              {error.status === 404
+                ? "Content not found"
+                : "Something went wrong!"}
             </h3>
+
             <div className='mt-2 text-sm text-gray-500'>
-              <p>We encountered an unexpected error. Please try again.</p>
+              <p>
+                {error.status === 404
+                  ? "The requested resource could not be found."
+                  : "We encountered an unexpected error. Please try again."}
+              </p>
             </div>
+
             <div className='mt-3 space-y-2'>
               <div>
                 <span className='text-xs font-medium text-gray-700'>
@@ -48,6 +63,7 @@ export default function Error({
                   {error.constructor.name}
                 </p>
               </div>
+
               <div>
                 <span className='text-xs font-medium text-gray-700'>
                   Error Message:
@@ -56,6 +72,18 @@ export default function Error({
                   {error.message}
                 </p>
               </div>
+
+              {error.status && (
+                <div>
+                  <span className='text-xs font-medium text-gray-700'>
+                    HTTP Status:
+                  </span>
+                  <p className='text-xs font-mono text-gray-600 bg-gray-100 px-2 py-1 rounded'>
+                    {error.status}
+                  </p>
+                </div>
+              )}
+
               {error.digest && (
                 <div>
                   <span className='text-xs font-medium text-gray-700'>
@@ -66,9 +94,21 @@ export default function Error({
                   </p>
                 </div>
               )}
+
+              {error.payload && (
+                <details className='mt-2 text-xs bg-gray-50 p-2 rounded'>
+                  <summary className='cursor-pointer text-gray-600'>
+                    Server Payload
+                  </summary>
+                  <pre className='whitespace-pre-wrap break-all'>
+                    {JSON.stringify(error.payload, null, 2)}
+                  </pre>
+                </details>
+              )}
             </div>
           </div>
         </div>
+
         <div className='mt-4'>
           <div className='-mx-2 -my-1.5 flex'>
             <button

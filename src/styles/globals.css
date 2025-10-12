@@ -48,4 +48,22 @@ body {
     max-width: var(--container--main);
     margin: 0 auto;
   }
+
+  @keyframes look-around {
+    0%,
+    40% {
+      transform: scaleX(1);
+    }
+    60%,
+    100% {
+      transform: scaleX(-1);
+    }
+  }
+
+  .animate-look-around {
+    animation: look-around 0.8s ease-in-out infinite;
+    will-change: transform;
+    backface-visibility: hidden;
+    transform-origin: center;
+  }
 }
