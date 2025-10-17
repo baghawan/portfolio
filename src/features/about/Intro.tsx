@@ -1,6 +1,7 @@
 import { Text } from "@/components/ui";
+import { BlocksContent, TextNode } from "@/types";
 
-export default function Intro() {
+export default function Intro({ data }: { data: BlocksContent }) {
   return (
     <section className='container-fluid min-h-[65dvh] md:min-h-[50dvh] xl:min-h-[75dvh] flex flex-col gap-8 lg:gap-12 justify-end-safe pb-6 xl:pb-12'>
       <div className='w-full max-w-[500px]'>
@@ -16,20 +17,14 @@ export default function Intro() {
           variant='subheading'
           className='text-neutral-500 dark:text-neutral-400 w-full xl:max-w-3/5'
         >
-          I craft pixel-aware, production-ready interfaces where visual design
-          meets functional code. Favoring scalable, modular, and performant
-          solutions. I translate product and design intent into reusable
-          components, reliable architecture, and intuitive flows. Shipping
-          experiences that scale with users and teams while keeping performance
-          and maintainability first.
+          {(data[0].children[0] as TextNode).text}
         </Text>
         <div className='flex gap-6 *:flex-1 w-full xl:max-w-1/3 lg:gap-10'>
           <Text className='text-neutral-500 dark:text-neutral-400 text-sm lg:text-base'>
-            I help teams align strategy with execution, balancing technical
-            depth with user-centered outcomes.
+            {(data[1].children[0] as TextNode).text}
           </Text>
           <Text className='text-neutral-500 dark:text-neutral-400 text-sm lg:text-base'>
-            I work at the intersection of design methods and engineering craft.
+            {(data[2].children[0] as TextNode).text}
           </Text>
         </div>
       </div>

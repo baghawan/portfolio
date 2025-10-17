@@ -1,35 +1,13 @@
 import { Text } from "@/components/ui";
 import { Accordion } from "@base-ui-components/react/accordion";
 import { PlusIcon } from "@radix-ui/react-icons";
+import { TExpertise } from "./types";
 
-const EXPERTISE = [
-  {
-    title: "Web Development",
-    description:
-      "Responsive and performant websites built with modern web technologies. Frontend and backend integration deliver smooth user experiences, scalability, and cross-device compatibility.",
-    tools: ["React", "Next.js", "Tailwind CSS", "TypeScript"],
-  },
-  {
-    title: "UI/UX Design",
-    description:
-      "User-centered interfaces designed with a balance of aesthetics and usability. Wireframing, prototyping, and testing ensure intuitive, accessible, and engaging digital experiences.",
-    tools: ["Figma", "Sketch"],
-  },
-  {
-    title: "Project Management",
-    description:
-      "Projects guided from concept to launch with clear communication and structured workflows. Agile methodologies and collaborative tools keep stakeholders aligned, progress tracked, and deliverables on schedule.",
-    tools: ["Trello", "Asana", "Jira"],
-  },
-  {
-    title: "Brand & Visual Identity",
-    description:
-      "Cohesive brand identities crafted to express personality and values. Logos, typography, and marketing materials maintain consistency across digital and print platforms, strengthening recognition and trust.",
-    tools: ["Adobe Photoshop", "Illustrator"],
-  },
-];
+interface ExpertiseProps {
+  data: TExpertise[];
+}
 
-export default function Expertise() {
+export default function Expertise({ data }: ExpertiseProps) {
   return (
     <section className='md:border-y md:border-solid md:border-y-neutral-200 md:dark:border-y-neutral-700'>
       <div className='md:flex md:items-start w-full mx-auto md:max-w-(--container--main)'>
@@ -42,9 +20,9 @@ export default function Expertise() {
         </Text>
         <div className='flex-1/2 border-x border-solid border-x-neutral-200 dark:border-x-neutral-700'>
           <Accordion.Root>
-            {EXPERTISE.map(({ title, description, tools }, index) => (
+            {data.map(({ name, documentId, description, tools }) => (
               <Accordion.Item
-                key={index}
+                key={documentId}
                 className='[&:not(:last-child)]:border-b [&:not(:last-child)]:border-solid [&:not(:last-child)]:border-b-neutral-200 [&:not(:last-child)]:dark:border-b-neutral-700 py-3 px-6'
               >
                 <Accordion.Header className='container-fluid'>
@@ -53,7 +31,7 @@ export default function Expertise() {
                       variant='subheading'
                       className='text-neutral-400 dark:text-neutral-500 group-data-[panel-open]:text-neutral-800 group-data-[panel-open]:dark:text-neutral-200'
                     >
-                      {title}
+                      {name}
                     </Text>
                     <PlusIcon
                       width={18}
@@ -72,12 +50,12 @@ export default function Expertise() {
                         {description}
                       </Text>
                       <ul className='flex flex-wrap gap-1.5'>
-                        {tools.map((tool, index) => (
+                        {tools.map(({ documentId, name }) => (
                           <li
-                            key={index}
+                            key={documentId}
                             className='text-xs font-semibold uppercase tracking-wider rounded-full py-1 px-2.5 bg-neutral-800 text-neutral-200 dark:bg-neutral-200 dark:text-neutral-800'
                           >
-                            {tool}
+                            {name}
                           </li>
                         ))}
                       </ul>

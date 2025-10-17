@@ -1,38 +1,17 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use server";
 
+import { StrapiError } from "./error";
 import {
-  FetchApiOptions,
+  FetcherOptions,
   NextRequestInit,
   StrapiErrorPayload,
   StrapiResponse,
 } from "./types";
 
-export class StrapiError extends Error {
-  public status: number;
-  public payload: StrapiErrorPayload;
-  constructor(
-    message: string,
-    status: number,
-    payload: StrapiErrorPayload,
-    cause?: unknown
-  ) {
-    super(message);
-    this.name = "StrapiError";
-    this.status = status;
-    this.payload = payload;
-
-    if (cause && !("cause" in this)) {
-      (this as unknown as { cause?: unknown }).cause = cause;
-    }
-
-    Object.setPrototypeOf(this, StrapiError.prototype);
-  }
-}
-
 if (typeof window !== "undefined") {
   throw new Error(
-    "fetchApi can only be used on the server. Use an API route or a client hook instead."
+    "fetcher can only be used on the server. Use an API route or a client hook instead."
   );
 }
 
@@ -47,7 +26,7 @@ const isServer = () => typeof window === "undefined";
 function buildUrl(
   base: string,
   endpoint: string,
-  query?: FetchApiOptions["query"]
+  query?: FetcherOptions["query"]
 ): string {
   const cleanEndpoint = endpoint.startsWith("/") ? endpoint.slice(1) : endpoint;
   const url = new URL(cleanEndpoint, `${base}/`);
@@ -71,8 +50,8 @@ function isJsonContentType(contentType: string | null): boolean {
   );
 }
 
-export async function fetchApi<T = unknown>(
-  opts: FetchApiOptions
+export async function fetcher<T = unknown>(
+  opts: FetcherOptions
 ): Promise<StrapiResponse<T>> {
   const {
     endpoint,
@@ -140,11 +119,11 @@ export async function fetchApi<T = unknown>(
       try {
         parsed = await res.json();
       } catch (parseErr) {
-        console.warn("[fetchApi] Failed to parse JSON:", parseErr);
+        console.warn("[fetcher] Failed to parse JSON:", parseErr);
         try {
           parsed = await res.text();
         } catch (textErr) {
-          console.warn("[fetchApi] Failed to read text fallback:", textErr);
+          console.warn("[fetcher] Failed to read text fallback:", textErr);
           parsed = null;
         }
       }
@@ -152,7 +131,7 @@ export async function fetchApi<T = unknown>(
       try {
         parsed = await res.text();
       } catch (textErr) {
-        console.warn("[fetchApi] Failed to read text:", textErr);
+        console.warn("[fetcher] Failed to read text:", textErr);
         parsed = null;
       }
     }

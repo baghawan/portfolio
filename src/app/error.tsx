@@ -1,5 +1,6 @@
 "use client";
 
+import { Button } from "@/components/ui";
 import { useEffect } from "react";
 
 interface ExtendedError extends Error {
@@ -20,9 +21,9 @@ export default function Error({
   }, [error]);
 
   return (
-    <div className='flex min-h-screen items-center justify-center bg-gray-50'>
-      <div className='max-w-md rounded-lg bg-white p-8 shadow-lg'>
-        <div className='flex items-center'>
+    <div className='flex min-h-[80dvh] items-center justify-center'>
+      <div className='max-w-xl w-full rounded-lg bg-white p-8 shadow-sm'>
+        <div className='flex items-start'>
           <div className='flex-shrink-0'>
             <svg
               className='h-8 w-8 text-red-400'
@@ -39,7 +40,7 @@ export default function Error({
             </svg>
           </div>
 
-          <div className='ml-3'>
+          <div className='ml-3 flex-1'>
             <h3 className='text-sm font-medium text-gray-800'>
               {error.status === 404
                 ? "Content not found"
@@ -110,14 +111,14 @@ export default function Error({
         </div>
 
         <div className='mt-4'>
-          <div className='-mx-2 -my-1.5 flex'>
-            <button
-              type='button'
-              className='rounded-md bg-red-50 px-2 py-1.5 text-sm font-medium text-red-800 hover:bg-red-100 focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-offset-2 focus:ring-offset-red-50'
+          <div className='flex justify-center'>
+            <Button
+              variant='primary'
+              size='md'
               onClick={reset}
             >
               Try again
-            </button>
+            </Button>
           </div>
         </div>
       </div>

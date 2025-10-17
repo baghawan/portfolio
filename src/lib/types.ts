@@ -3,7 +3,7 @@ export interface NextRequestInit extends RequestInit {
   cache?: RequestCache;
 }
 
-export interface FetchApiOptions {
+export interface FetcherOptions {
   endpoint: string;
   query?: Record<
     string,

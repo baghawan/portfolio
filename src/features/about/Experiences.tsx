@@ -1,19 +1,11 @@
 import { Text } from "@/components/ui";
+import { TExperiences } from "./types";
 
-const EXPERTISE = [
-  {
-    company: "99 Group",
-    position: "Senior Frontend Engineer",
-    duration: "2022 - Present",
-  },
-  {
-    company: "RevivalTV",
-    position: "Head of Engineering",
-    duration: "2022",
-  },
-];
+interface ExperiencesProps {
+  data: TExperiences[];
+}
 
-export default function Experiences() {
+export default function Experiences({ data }: ExperiencesProps) {
   return (
     <section>
       <div className='container-fluid mb-6'>
@@ -25,16 +17,16 @@ export default function Experiences() {
         </Text>
       </div>
       <ul>
-        {EXPERTISE.map(({ company, position, duration }, index) => (
+        {data.map(({ company, position, startDate, endDate, documentId }) => (
           <li
-            key={index}
+            key={documentId}
             className='container-fluid flex items-baseline-last gap-6 justify-between py-3 border-b border-solid border-b-neutral-200 dark:border-b-neutral-700'
           >
             <Text
               variant='caption'
               className='text-neutral-500 dark:text-neutral-400'
             >
-              {duration}
+              {startDate} - {endDate}
             </Text>
             <div className='text-right'>
               <Text
