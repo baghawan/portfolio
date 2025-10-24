@@ -1,4 +1,20 @@
 import { Text } from "@/components/ui";
+import { GalleryImage, SeoProps, WorkBase } from "@/types";
+
+interface WorksData extends WorkBase {
+  expertise?: {
+    id: string;
+    documentId: string;
+    name: string;
+  };
+  tools?: {
+    id: string;
+    documentId: string;
+    name: string;
+  }[];
+  gallery?: GalleryImage[];
+  seo?: SeoProps;
+}
 
 export default function WorkDetails() {
   return (

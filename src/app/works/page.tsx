@@ -1,7 +1,15 @@
+import type { Metadata } from "next";
 import { Text } from "@/components/ui";
+import { WORKS_SEO } from "@/constants";
 import { WorkList } from "@/features/works";
+import { fetcher } from "@/lib/fetcher";
+import { WorkListProps } from "@/types";
 
-export default function Work() {
+export const metadata: Metadata = WORKS_SEO;
+
+export default async function Work() {
+  const { data } = await fetcher<WorkListProps[]>({ endpoint: "/works" });
+
   return (
     <>
       <section className='container-fluid pt-8 xl:pt-12'>
@@ -12,7 +20,7 @@ export default function Work() {
           Works
         </Text>
       </section>
-      <WorkList />
+      <WorkList data={data} />
     </>
   );
 }

@@ -6,7 +6,7 @@ export const DEFAULT_SEO: Metadata = {
     "Software Engineer specializing in Frontend development. Translating design into engineering solutions with scalable, maintainable, high-quality code.",
 };
 
-export const ABOUT_SEO: Metadata = {
-  title: "About | Baghawan — Frontend Engineer",
-  description: "About Dian Baghawan Putera",
+export const WORKS_SEO: Metadata = {
+  title: "Works | Baghawan — Frontend Engineer",
+  description: "Works by Dian Baghawan Putera",
 };
