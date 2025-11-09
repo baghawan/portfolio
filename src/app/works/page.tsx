@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Text } from "@/components/ui";
 import { WORKS_SEO } from "@/constants";
-import { WorkList } from "@/features/works";
+import { WorkList } from "@/features/works/list";
 import { fetcher } from "@/lib/fetcher";
 import { WorkListProps } from "@/types";
 

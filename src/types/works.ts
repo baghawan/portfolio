@@ -1,4 +1,5 @@
 import { GalleryImage } from "./gallery";
+import { SeoProps } from "./seo";
 
 export interface WorkBase {
   id: string;
@@ -18,4 +19,19 @@ export interface WorkListProps extends Omit<WorkBase, "description"> {
     documentId: string;
     name: string;
   };
+}
+
+export interface WorksData extends WorkBase {
+  expertise: {
+    id: string;
+    documentId: string;
+    name: string;
+  };
+  tools: {
+    id: string;
+    documentId: string;
+    name: string;
+  }[];
+  gallery: GalleryImage[];
+  seo: SeoProps;
 }

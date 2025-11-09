@@ -1,7 +1,6 @@
 "use client";
 
-import { Button } from "@/components/ui";
-import { useEffect } from "react";
+import { Anchor } from "@/components/ui";
 
 interface ExtendedError extends Error {
   digest?: string;
@@ -9,17 +8,7 @@ interface ExtendedError extends Error {
   payload?: Record<string, unknown> | null;
 }
 
-export default function Error({
-  error,
-  reset,
-}: {
-  error: ExtendedError;
-  reset: () => void;
-}) {
-  useEffect(() => {
-    console.error("Captured error:", error);
-  }, [error]);
-
+export default function Error({ error }: { error: ExtendedError }) {
   return (
     <div className='flex min-h-[80dvh] items-center justify-center'>
       <div className='max-w-xl w-full rounded-lg bg-white p-8 shadow-sm'>
@@ -112,13 +101,13 @@ export default function Error({
 
         <div className='mt-4'>
           <div className='flex justify-center'>
-            <Button
-              variant='primary'
-              size='md'
-              onClick={reset}
+            <Anchor
+              href='/'
+              variant='muted'
+              className='bg-(--color-foreground) text-(--color-background) px-4 py-2 text-base font-medium rounded-lg'
             >
-              Try again
-            </Button>
+              Back to Home
+            </Anchor>
           </div>
         </div>
       </div>

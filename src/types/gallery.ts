@@ -1,4 +1,4 @@
-export interface Image {
+export interface ImageBase {
   name: string;
   url: string;
   width: number;
@@ -7,9 +7,9 @@ export interface Image {
 
 export interface GalleryImage<
   TFormats extends string = "small" | "medium" | "thumbnail"
-> extends Image {
+> extends ImageBase {
   id: string;
   documentId: string;
   alternativeText: string;
-  formats?: Partial<Record<TFormats, Image>>;
+  formats?: Partial<Record<TFormats, ImageBase>>;
 }

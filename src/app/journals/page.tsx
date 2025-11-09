@@ -1,5 +1,5 @@
 import { Text } from "@/components/ui";
-import { JournalList } from "@/features/journals";
+import { JournalList } from "@/features/journals/list";
 
 export default function Journal() {
   return (

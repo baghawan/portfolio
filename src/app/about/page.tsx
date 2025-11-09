@@ -12,8 +12,8 @@ import {
   TExperiences,
   TExpertise,
 } from "@/features/about/types";
-import { DEFAULT_SEO } from "@/constants";
 import { SeoProps } from "@/types";
+import { buildMetadata } from "@/utils/seo";
 
 interface AboutData {
   intro?: BlocksContent;
@@ -30,30 +30,7 @@ async function getAboutData(): Promise<AboutData> {
 
 export async function generateMetadata(): Promise<Metadata> {
   const data = await getAboutData();
-  const seo = data.seo || {};
-
-  const title = seo.metaTitle || String(DEFAULT_SEO.title);
-  const description = seo.metaDescription || String(DEFAULT_SEO.description);
-  const imageUrl = seo.metaImage?.url
-    ? `${process.env.STRAPI_ASSETS_BASE_URL}${seo.metaImage.url}`
-    : "";
-
-  return {
-    title,
-    description,
-    keywords: seo.keywords,
-    openGraph: {
-      title,
-      description,
-      images: imageUrl,
-    },
-    twitter: {
-      card: "summary_large_image",
-      title,
-      description,
-      images: imageUrl,
-    },
-  };
+  return buildMetadata(data.seo);
 }
 
 export default async function About() {
