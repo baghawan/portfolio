@@ -64,20 +64,21 @@ export default function WorkDetail({
           </div>
         </div>
         <div className='relative bg-neutral-50 dark:bg-neutral-900 xl:order-1 p-4 flex flex-col gap-4 xl:gap-6 xl:p-8'>
-          {gallery.map((img) => {
+          {gallery.map((img, i) => {
             return (
               <div
                 key={img.id}
-                className='relative aspect-square bg-(--background) rounded-xl overflow-hidden'
+                className='relative aspect-square bg-(--background) rounded-xl overflow-hidden flex items-center'
               >
                 <Image
                   src={`${process.env.STRAPI_ASSETS_BASE_URL}${img.url}`}
                   alt={img.alternativeText || title}
+                  priority={i === 0}
+                  loading={i === 0 ? "eager" : "lazy"}
+                  width={img.width}
+                  height={img.height}
+                  sizes='(max-width: 768px) 100vw, 50vw'
                   className='object-contain'
-                  fill
-                  sizes='(max-width: 600px) 100vw,
-                     (max-width: 1200px) 50vw,
-                     33vw'
                 />
               </div>
             );
