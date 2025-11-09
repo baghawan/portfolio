@@ -6,7 +6,7 @@ export default function WorkList({ data }: { data: WorkListProps[] }) {
   return (
     <>
       <section className='pb-16 container-fluid grid grid-cols-1 gap-x-4 gap-y-8 md:grid-cols-2 lg:grid-cols-3'>
-        {data.map(({ documentId, title, expertise, slug, gallery }) => {
+        {data.map(({ documentId, title, expertise, slug, gallery }, i) => {
           const imageSource = gallery.formats?.medium;
 
           return (
@@ -30,12 +30,15 @@ export default function WorkList({ data }: { data: WorkListProps[] }) {
                   {expertise.name}
                 </Text>
               </div>
-              <Card className='aspect-square rounded-2xl'>
+              <Card className='relative w-full aspect-square rounded-2xl overflow-hidden flex items-center'>
                 <Image
                   src={`${process.env.STRAPI_ASSETS_BASE_URL}${imageSource?.url}`}
                   alt={title}
-                  width={imageSource?.width}
-                  height={imageSource?.height}
+                  fill
+                  priority={i < 2}
+                  loading={i < 2 ? "eager" : "lazy"}
+                  sizes='(max-width: 768px) 100vw, 50vw'
+                  className='object-contain'
                 />
               </Card>
             </Anchor>

@@ -68,7 +68,7 @@ export default function WorkDetail({
             return (
               <div
                 key={img.id}
-                className='relative aspect-square bg-(--background) rounded-xl overflow-hidden flex items-center'
+                className='relative aspect-square bg-(--background) rounded-2xl overflow-hidden w-full flex items-center'
               >
                 <Image
                   src={`${process.env.STRAPI_ASSETS_BASE_URL}${img.url}`}
