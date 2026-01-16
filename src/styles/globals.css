@@ -6,6 +6,7 @@
   --foreground: #171717;
   --site-gutter: clamp(1rem, 0.5rem + 3vw, 3.5rem);
   --site-max: min(1600px, 100vw);
+  --site-max-narrow: min(850px, 100vw);
 }
 
 @theme {
@@ -15,6 +16,7 @@
   --font-sans: var(--font-manrope);
 
   --container--main: calc(var(--site-max) - var(--site-gutter) * 2);
+  --container--narrow: calc(var(--site-max-narrow) - var(--site-gutter) * 2);
 }
 
 .dark {
@@ -46,6 +48,12 @@ body {
   .container-fluid {
     width: 100%;
     max-width: var(--container--main);
+    margin: 0 auto;
+  }
+
+  .container-narrow {
+    width: 100%;
+    max-width: var(--container--narrow);
     margin: 0 auto;
   }
 
