@@ -47,6 +47,7 @@ export interface QuoteBlock {
 export interface CodeBlock {
   type: "code";
   children: TextNode[];
+  language?: string;
 }
 
 export interface ImageBlock {

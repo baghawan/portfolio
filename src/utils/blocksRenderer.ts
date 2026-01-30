@@ -13,9 +13,20 @@ import type {
   ImageBlock,
 } from "@/types";
 
+import { codeToHtml } from "shiki";
+
+/* ---------- shiki ---------- */
+
+async function renderCodeBlock(text: string, lang = "js"): Promise<string> {
+  return codeToHtml(text, {
+    lang,
+    theme: "dark-plus",
+  });
+}
+
 /* ---------- utils ---------- */
 
-const escapeHtml = (str: string) =>
+const escapeHtml = (str: string): string =>
   str
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
@@ -29,7 +40,8 @@ const inlineRenderers: Record<InlineNode["type"], (node: any) => string> = {
   text: (node: TextNode) => {
     let out = escapeHtml(node.text);
 
-    if (node.code) out = `<code>${out}</code>`;
+    if (node.code)
+      out = `<code class="bg-neutral-100 dark:bg-neutral-800 py-1 px-1.5 rounded-sm">${out}</code>`;
     if (node.bold) out = `<strong>${out}</strong>`;
     if (node.italic) out = `<em>${out}</em>`;
     if (node.underline) out = `<u>${out}</u>`;
@@ -47,39 +59,50 @@ const inlineRenderers: Record<InlineNode["type"], (node: any) => string> = {
 };
 
 function renderInline(node: InlineNode): string {
-  return inlineRenderers[node.type]?.(node) ?? "";
+  return inlineRenderers[node.type](node);
 }
 
 /* ---------- block renderers ---------- */
 
-const blockRenderers: Record<BlockNode["type"], (block: any) => string> = {
-  paragraph: (block: ParagraphBlock) =>
+const blockRenderers: Record<
+  BlockNode["type"],
+  (block: any) => Promise<string>
+> = {
+  paragraph: async (block: ParagraphBlock) =>
     `<p>${block.children.map(renderInline).join("")}</p>`,
 
-  heading: (block: HeadingBlock) => {
+  heading: async (block: HeadingBlock) => {
     const level = Math.min(Math.max(block.level, 1), 6);
     return `<h${level}>${block.children
       .map(renderInline)
       .join("")}</h${level}>`;
   },
 
-  list: (block: ListBlock) => {
-    const tag = block.format === "ordered" ? "ol" : "ul";
+  list: async (block: ListBlock) => {
+    const isOrdered = block.format === "ordered";
+    const tag = isOrdered ? "ol" : "ul";
+    const className = isOrdered ? "list-decimal" : "list-disc";
+
     const items = block.children
       .map((item) => `<li>${item.children.map(renderInline).join("")}</li>`)
       .join("");
-    return `<${tag}>${items}</${tag}>`;
+
+    return `<${tag} class="${className} pl-4">${items}</${tag}>`;
   },
 
-  quote: (block: QuoteBlock) =>
-    `<blockquote>${block.children.map(renderInline).join("")}</blockquote>`,
+  quote: async (block: QuoteBlock) =>
+    `<blockquote class="relative border-l-4 border-zinc-600 pl-3 italic">${block.children
+      .map(renderInline)
+      .join("")}</blockquote>`,
 
-  code: (block: CodeBlock) =>
-    `<pre><code>${escapeHtml(
-      block.children.map((n) => n.text).join("")
-    )}</code></pre>`,
+  code: async (block: CodeBlock) => {
+    const raw = block.children.map((n) => n.text).join("");
+    const language = block.language ?? "plaintext";
 
-  image: (block: ImageBlock) => {
+    return renderCodeBlock(raw, language);
+  },
+
+  image: async (block: ImageBlock) => {
     const alt = escapeHtml(block.image.alternativeText ?? "");
     const caption = block.image.caption
       ? `<figcaption>${escapeHtml(block.image.caption)}</figcaption>`
@@ -92,8 +115,12 @@ const blockRenderers: Record<BlockNode["type"], (block: any) => string> = {
   },
 };
 
-export function BlocksRenderer(content: BlocksContent): string {
-  return content
-    .map((block) => blockRenderers[block.type]?.(block) ?? "")
-    .join("");
+/* ---------- public API ---------- */
+
+export async function renderBlocks(content: BlocksContent): Promise<string> {
+  const parts = await Promise.all(
+    content.map((block) => blockRenderers[block.type](block))
+  );
+
+  return parts.join("");
 }

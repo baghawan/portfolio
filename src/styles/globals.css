@@ -75,3 +75,9 @@ body {
     transform-origin: center;
   }
 }
+
+@layer components {
+  pre.shiki {
+    @apply overflow-x-auto rounded-sm p-4 text-xs leading-relaxed;
+  }
+}

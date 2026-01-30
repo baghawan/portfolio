@@ -18,6 +18,6 @@ export interface JournalData extends JournalBase {
     documentId: string;
     name: string;
   }[];
-  cover_picture: GalleryImage[];
+  cover_picture: GalleryImage;
   seo: SeoProps;
 }

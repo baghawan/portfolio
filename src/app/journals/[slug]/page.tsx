@@ -36,12 +36,15 @@ export default async function Journal({
   params: Promise<{ slug: string }>;
 }) {
   const data = await getWorkDataFromParams(params);
+  const { title, cover_picture, content } = data;
 
   return (
     <article className='pt-8 xl:pt-12 flex flex-col gap-12'>
-      <pre>{JSON.stringify(data, null, 2)}</pre>
-      <HeroFold />
-      <Content />
+      <HeroFold
+        title={title}
+        cover_picture={cover_picture}
+      />
+      <Content content={content} />
     </article>
   );
 }
