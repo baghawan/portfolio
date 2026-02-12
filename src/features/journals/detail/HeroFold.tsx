@@ -1,6 +1,7 @@
 import Image from "next/image";
-import { Card, Text } from "@/components/ui";
-import { GalleryImage } from "@/types";
+import Card from "@/components/ui/Card";
+import Text from "@/components/ui/Text";
+import { GalleryImage } from "@/types/gallery";
 
 export default function HeroFold({
   title,

@@ -1,6 +1,7 @@
 import { getCurrentYear } from "@/utils/date";
-import { Anchor, Text } from "@/components/ui";
-import { EXTERNAL_NAVIGATION_ITEMS } from "@/constants";
+import Anchor from "@/components/ui/Anchor";
+import Text from "@/components/ui/Text";
+import { EXTERNAL_NAVIGATION_ITEMS } from "@/constants/navigation";
 
 export default function Footer() {
   return (

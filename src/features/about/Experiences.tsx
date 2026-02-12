@@ -1,4 +1,4 @@
-import { Text } from "@/components/ui";
+import Text from "@/components/ui/Text";
 import { TExperiences } from "./types";
 
 interface ExperiencesProps {

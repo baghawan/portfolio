@@ -1,4 +1,4 @@
-import { Text } from "@/components/ui";
+import Text from "@/components/ui/Text";
 import { Accordion } from "@base-ui-components/react/accordion";
 import { PlusIcon } from "@radix-ui/react-icons";
 import { TExpertise } from "./types";

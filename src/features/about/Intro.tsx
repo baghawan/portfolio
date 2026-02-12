@@ -1,5 +1,5 @@
-import { Text } from "@/components/ui";
-import { BlocksContent, TextNode } from "@/types";
+import Text from "@/components/ui/Text";
+import { BlocksContent, TextNode } from "@/types/strapi-blocks";
 
 export default function Intro({ data }: { data: BlocksContent }) {
   return (

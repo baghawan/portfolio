@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { fetcher } from "@/lib/fetcher";
-import { WorksData } from "@/types";
-import { WorkDetail } from "@/features/works/detail";
+import { WorksData } from "@/types/works";
+import WorkDetail from "@/features/works/detail/WorkDetail";
 import { notFound } from "next/navigation";
 import { StrapiError } from "@/lib/error";
 import { buildMetadata } from "@/utils/seo";

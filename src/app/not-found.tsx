@@ -1,4 +1,5 @@
-import { Anchor, Text } from "@/components/ui";
+import Anchor from "@/components/ui/Anchor";
+import Text from "@/components/ui/Text";
 
 export default function NotFound() {
   return (

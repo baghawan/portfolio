@@ -1,11 +1,9 @@
 import MorphedShapes from "@/components/common/MorphedShapes";
-import { Text } from "@/components/ui";
-import {
-  LatestJournals,
-  FeaturedWorks,
-  Intro,
-  MarqueeBlock,
-} from "@/features/home";
+import Text from "@/components/ui/Text";
+import Intro from "@/features/home/Intro";
+import FeaturedWorks from "@/features/home/FeaturedWorks";
+import LatestJournals from "@/features/home/LatestJournals";
+import MarqueeBlock from "@/features/home/MarqueeBlock";
 import { mockHome } from "@/features/home/mock";
 import { Fragment } from "react";
 
@@ -25,7 +23,7 @@ export default function Home() {
       <section>
         <div className='border-y border-solid border-y-neutral-200 dark:border-y-neutral-700 py-1'>
           <MarqueeBlock>
-            {expertise.map((item, index) => (
+            {expertise.map((item: string, index: number) => (
               <Fragment key={index}>
                 <Text
                   key={index}

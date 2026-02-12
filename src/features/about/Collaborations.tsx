@@ -1,4 +1,4 @@
-import { Text } from "@/components/ui";
+import Text from "@/components/ui/Text";
 import { TCollaborations } from "./types";
 import Image from "next/image";
 

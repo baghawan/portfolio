@@ -1,6 +1,6 @@
 "use client";
 
-import { Anchor } from "@/components/ui";
+import Anchor from "@/components/ui/Anchor";
 
 interface ExtendedError extends Error {
   digest?: string;

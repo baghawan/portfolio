@@ -1,4 +1,4 @@
-import { Home } from "./models";
+import { Home } from "@/types/home";
 
 export const mockHome: Home = {
   intro: {

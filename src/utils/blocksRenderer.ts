@@ -11,7 +11,7 @@ import type {
   QuoteBlock,
   CodeBlock,
   ImageBlock,
-} from "@/types";
+} from "@/types/strapi-blocks";
 
 import { codeToHtml } from "shiki";
 

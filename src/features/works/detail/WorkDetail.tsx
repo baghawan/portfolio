@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { Text } from "@/components/ui";
-import { WorksData } from "@/types";
+import Text from "@/components/ui/Text";
+import { WorksData } from "@/types/works";
 
 interface Attributes {
   name: string;

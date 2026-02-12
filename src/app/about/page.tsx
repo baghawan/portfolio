@@ -1,19 +1,17 @@
 import type { Metadata } from "next";
 import { fetcher } from "@/lib/fetcher";
 import { BlocksContent } from "@/types/strapi-blocks";
-import {
-  Intro,
-  Expertise,
-  Collaborations,
-  Experiences,
-} from "@/features/about";
-import {
-  TCollaborations,
-  TExperiences,
-  TExpertise,
-} from "@/features/about/types";
-import { SeoProps } from "@/types";
+import Intro from "@/features/about/Intro";
+import Expertise from "@/features/about/Expertise";
+import Collaborations from "@/features/about/Collaborations";
+import Experiences from "@/features/about/Experiences";
+import { SeoProps } from "@/types/seo";
 import { buildMetadata } from "@/utils/seo";
+import {
+  TExpertise,
+  TExperiences,
+  TCollaborations,
+} from "@/features/about/types";
 
 interface AboutData {
   intro?: BlocksContent;

@@ -1,4 +1,6 @@
-import { Anchor, Card, Text } from "@/components/ui";
+import Anchor from "@/components/ui/Anchor";
+import Card from "@/components/ui/Card";
+import Text from "@/components/ui/Text";
 import { ArrowRightIcon } from "@radix-ui/react-icons";
 import { Slider } from "@/components/common/Slider";
 

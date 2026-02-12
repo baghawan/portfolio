@@ -1,9 +1,9 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { Anchor } from "../ui";
+import Anchor from "../ui/Anchor";
 import { ThemeToggle } from "./ThemeToggle";
-import { MAIN_NAVIGATION_ITEMS } from "@/constants";
+import { MAIN_NAVIGATION_ITEMS } from "@/constants/navigation";
 import { cn } from "@/utils/cn";
 import { isActivePath } from "@/utils/navigation";
 

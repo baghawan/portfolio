@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import { fetcher } from "@/lib/fetcher";
-import { Content, HeroFold } from "@/features/journals/detail";
+import Content from "@/features/journals/detail/Content";
+import HeroFold from "@/features/journals/detail/HeroFold";
 import { notFound } from "next/navigation";
 import { StrapiError } from "@/lib/error";
 import { buildMetadata } from "@/utils/seo";
-import { JournalData } from "@/types";
+import { JournalData } from "@/types/journals";
 
 async function getWorkDataFromParams(
   params: Promise<{ slug: string }>

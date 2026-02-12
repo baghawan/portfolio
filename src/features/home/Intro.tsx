@@ -1,9 +1,9 @@
 "use client";
 
 import * as m from "motion/react-m";
-import { Text } from "@/components/ui";
-import { useEntranceMotion } from "@/hooks";
-import { HomeIntro } from "@/types";
+import Text from "@/components/ui/Text";
+import { useEntranceMotion } from "@/hooks/motion";
+import { HomeIntro } from "@/types/home";
 
 export default function Intro({ title, description }: HomeIntro) {
   const { initial, animate, transition } = useEntranceMotion();

@@ -1,4 +1,4 @@
-import { BlocksContent } from "@/types";
+import { BlocksContent } from "@/types/strapi-blocks";
 import { renderBlocks } from "@/utils/blocksRenderer";
 
 export default async function Content({ content }: { content: BlocksContent }) {

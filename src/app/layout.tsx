@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
 import { LazyMotion, domMax } from "motion/react";
-import { DEFAULT_SEO } from "@/constants";
+import { DEFAULT_SEO } from "@/constants/seo";
 import { ThemeProvider } from "@/components/common/ThemeProvider";
 import Header from "@/components/common/Header";
 import Footer from "@/components/common/Footer";

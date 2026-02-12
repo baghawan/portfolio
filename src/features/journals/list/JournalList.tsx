@@ -1,4 +1,5 @@
-import { Card, Text } from "@/components/ui";
+import Card from "@/components/ui/Card";
+import Text from "@/components/ui/Text";
 
 const ITEMS = 12;
 

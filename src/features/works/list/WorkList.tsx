@@ -1,5 +1,7 @@
-import { Anchor, Card, Text } from "@/components/ui";
-import { WorkListProps } from "@/types";
+import Anchor from "@/components/ui/Anchor";
+import Card from "@/components/ui/Card";
+import Text from "@/components/ui/Text";
+import { WorkListProps } from "@/types/works";
 import Image from "next/image";
 
 export default function WorkList({ data }: { data: WorkListProps[] }) {

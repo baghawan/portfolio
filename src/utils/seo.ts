@@ -1,5 +1,5 @@
-import { DEFAULT_SEO } from "@/constants";
-import { SeoProps } from "@/types";
+import { DEFAULT_SEO } from "@/constants/seo";
+import { SeoProps } from "@/types/seo";
 import type { Metadata } from "next";
 
 export function buildMetadata(seo?: SeoProps): Metadata {
