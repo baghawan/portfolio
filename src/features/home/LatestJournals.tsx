@@ -41,9 +41,10 @@ export default function LatestJournals({ journals }: LatestJournalsProps) {
         }}
       >
         {journals.map((journal: JournalListProps) => (
-          <div
+          <Anchor
             key={journal.id}
-            className='flex-[0_0_80%] md:flex-[0_0_30%] px-2'
+            href={`/journals/${journal.slug}`}
+            className='flex-[0_0_80%] md:flex-[0_0_30%] px-2 block'
           >
             <Card className='aspect-[7/8] rounded-2xl overflow-hidden relative'>
               <Image
@@ -69,7 +70,7 @@ export default function LatestJournals({ journals }: LatestJournalsProps) {
                 </Text>
               </div>
             </Card>
-          </div>
+          </Anchor>
         ))}
       </Slider>
     </section>

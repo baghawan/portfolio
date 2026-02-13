@@ -6,6 +6,7 @@ import LatestJournals from "@/features/home/LatestJournals";
 import MarqueeBlock from "@/features/home/MarqueeBlock";
 import { mockHome } from "@/features/home/mock";
 import { getJournals } from "@/features/journals/actions";
+import { getHomepage } from "@/features/home/actions";
 import { Fragment } from "react";
 
 export default async function Home() {
@@ -14,7 +15,13 @@ export default async function Home() {
     expertise,
   } = mockHome;
 
-  const { data: journals } = await getJournals({ pageSize: 4 });
+  const [journalsResult, homepageResult] = await Promise.allSettled([
+    getJournals({ pageSize: 4 }),
+    getHomepage(),
+  ]);
+
+  const journals = journalsResult.status === "fulfilled" ? journalsResult.value.data : null;
+  const homepage = homepageResult.status === "fulfilled" ? homepageResult.value.data : null;
 
   return (
     <>
@@ -22,7 +29,7 @@ export default async function Home() {
         title={title}
         description={description}
       />
-      <FeaturedWorks />
+      <FeaturedWorks works={homepage?.works ?? []} />
       <section>
         <div className='border-y border-solid border-y-neutral-200 dark:border-y-neutral-700 py-1'>
           <MarqueeBlock>
