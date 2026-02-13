@@ -20,7 +20,7 @@ export default function FeaturedWorks() {
       <Card
         className={cn(
           "h-[250px] lg:h-[340px] xl:h-[500px] rounded-2xl",
-          getClassName(i)
+          getClassName(i),
         )}
         key={i}
       >
@@ -40,7 +40,7 @@ export default function FeaturedWorks() {
         </Text>
 
         <Anchor
-          href='/work'
+          href='/works'
           variant='muted'
         >
           <span>See All</span>

@@ -33,6 +33,7 @@ const BigItemList = ({ item }: { item: JournalListProps }) => {
         <Text
           variant='body'
           as='h2'
+          className='line-clamp-1'
         >
           {item.title}
         </Text>
@@ -73,6 +74,7 @@ const ItemList = ({ item }: { item: JournalListProps }) => {
         <Text
           variant='body'
           as='h2'
+          className='line-clamp-1'
         >
           {item.title}
         </Text>

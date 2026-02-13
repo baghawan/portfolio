@@ -5,13 +5,16 @@ import FeaturedWorks from "@/features/home/FeaturedWorks";
 import LatestJournals from "@/features/home/LatestJournals";
 import MarqueeBlock from "@/features/home/MarqueeBlock";
 import { mockHome } from "@/features/home/mock";
+import { getJournals } from "@/features/journals/actions";
 import { Fragment } from "react";
 
-export default function Home() {
+export default async function Home() {
   const {
     intro: { title, description },
     expertise,
   } = mockHome;
+
+  const { data: journals } = await getJournals({ pageSize: 4 });
 
   return (
     <>
@@ -51,7 +54,7 @@ export default function Home() {
           </MarqueeBlock>
         </div>
       </section>
-      <LatestJournals />
+      <LatestJournals journals={journals ?? []} />
     </>
   );
 }

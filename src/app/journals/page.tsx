@@ -1,14 +1,13 @@
 import type { Metadata } from "next";
-import { fetcher } from "@/lib/fetcher";
 import Text from "@/components/ui/Text";
 import { JOURNALS_SEO } from "@/constants/seo";
 import JournalList from "@/features/journals/list/JournalList";
-import { JournalListProps } from "@/types/journals";
+import { getJournals } from "@/features/journals/actions";
 
 export const metadata: Metadata = JOURNALS_SEO;
 
 export default async function Journal() {
-  const { data } = await fetcher<JournalListProps[]>({ endpoint: "/journals" });
+  const { data } = await getJournals({ pageSize: 8 });
 
   return (
     <>
