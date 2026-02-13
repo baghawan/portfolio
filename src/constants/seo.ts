@@ -10,3 +10,8 @@ export const WORKS_SEO: Metadata = {
   title: "Works | Baghawan — Frontend Engineer",
   description: "Works by Dian Baghawan Putera",
 };
+
+export const JOURNALS_SEO: Metadata = {
+  title: "Journals | Baghawan — Frontend Engineer",
+  description: "Journals by Dian Baghawan Putera",
+};

@@ -53,7 +53,7 @@ const inlineRenderers: Record<InlineNode["type"], (node: any) => string> = {
   link: (node: LinkNode) => {
     const children = node.children.map(renderInline).join("");
     return `<a href="${escapeHtml(
-      node.url
+      node.url,
     )}" target="_blank" rel="noopener noreferrer">${children}</a>`;
   },
 };
@@ -109,7 +109,7 @@ const blockRenderers: Record<
       : "";
 
     return `<figure>
-      <img src="${escapeHtml(block.image.url)}" alt="${alt}" />
+      <img src="${escapeHtml(block.image.url)}" alt="${alt}" class="w-full h-auto" />
       ${caption}
     </figure>`;
   },
@@ -119,7 +119,7 @@ const blockRenderers: Record<
 
 export async function renderBlocks(content: BlocksContent): Promise<string> {
   const parts = await Promise.all(
-    content.map((block) => blockRenderers[block.type](block))
+    content.map((block) => blockRenderers[block.type](block)),
   );
 
   return parts.join("");

@@ -11,6 +11,15 @@ export interface JournalBase {
   slug: string;
 }
 
+export interface JournalListProps extends JournalBase {
+  journal_category: {
+    id: string;
+    documentId: string;
+    name: string;
+  };
+  cover_picture: GalleryImage<"small" | "medium" | "thumbnail">;
+}
+
 export interface JournalData extends JournalBase {
   content: BlocksContent;
   journal_category: {
